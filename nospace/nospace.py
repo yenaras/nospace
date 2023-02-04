@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 import os
+import re
 import argparse
+import sys
+
+sys.dont_write_bytecode = True
 
 parser = argparse.ArgumentParser(
     description="rename files in bulk to remove spaces")
@@ -15,7 +19,7 @@ parser.add_argument(
     type=str,
     default="lower",
     choices=["lower", "title", "upper"],
-    help="case of the renamed files and folders (lower, title, or upper)",
+    help="case of the renamed files and folders (lower(default), title, or upper)",
 )
 parser.add_argument(
     "-o",
@@ -31,7 +35,7 @@ parser.add_argument(
 )
 parser.add_argument(
     "-p", "--path", type=str, default=os.getcwd(),
-    help="optional file path to start with"
+    help="optional file path to start with (default is current directory)"
 )
 args = parser.parse_args()
 
@@ -45,7 +49,7 @@ def rename(parent, max_depth, case, objects, seperator, current_depth=1):
     for path, folders, files in os.walk(parent):
         if objects in ['both', 'files']:
             for f in files:
-                new_name = f.replace(" ", seperator)
+                new_name = re.sub(r'[ _-]+', seperator, f)
                 if case == "title":
                     new_name = new_name.title()
                 elif case == "upper":
@@ -60,7 +64,7 @@ def rename(parent, max_depth, case, objects, seperator, current_depth=1):
 
         if objects in ['both', 'folders']:
             for i in range(len(folders)):
-                new_name = folders[i].replace(" ", seperator)
+                new_name = re.sub(r'[ _-]+', seperator, folders[i])
                 if case == "title":
                     new_name = new_name.title()
                 elif case == "upper":

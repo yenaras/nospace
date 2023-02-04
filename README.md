@@ -13,7 +13,8 @@ Programming With Python.
 ---
 ### Installation
 ---
-TODO: publish to pypi and make installable
+##### TODO: publish to pypi and make installable
+---
 I want to make it operating system agnostic, so when you install it with pip,
 you can run it from the command line with calling the python executable directory.
 I'm not sure yet how to do this for Windows systems. I know for Unix systems,
@@ -51,3 +52,8 @@ options:
                         separator to replace spaces with (default is _)
   -p PATH, --path PATH  optional file path to start with
 ```
+---
+##### LICENSE
+
+---
+This repo is licensed under the permissive MIT license.  You can do whatever you want with it.

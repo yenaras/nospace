@@ -2,8 +2,10 @@
 import os
 import shutil
 from pathlib import Path
-
+import sys
 from nospace.nospace import rename
+
+sys.dont_write_bytecode = True
 
 
 # Helper function to create a test directory with files and folders
