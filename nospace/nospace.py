@@ -63,7 +63,7 @@ def rename(parent, max_depth, case, objects, seperator):
                 os.rename(old_path, new_path)
                 # os.remove(old_path)
 
-        if objects in ['both', 'files']:
+        if objects in ['both', 'folders']:
             for i in range(len(folders)):
                 new_name = folders[i].replace(" ", seperator)
                 if case == "title":
