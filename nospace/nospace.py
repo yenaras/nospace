@@ -40,12 +40,8 @@ def main():
     rename(args.path, args.depth, args.case, args.objects, args.seperator)
 
 
-def rename(parent, max_depth, case, objects, seperator):
-    current_depth = parent.count(os.sep)
-
-    if max_depth is not None and current_depth >= max_depth:
-        return
-
+def rename(parent, max_depth, case, objects, seperator, current_depth=1):
+    print(current_depth)
     for path, folders, files in os.walk(parent):
         if objects in ['both', 'files']:
             for f in files:
@@ -61,7 +57,6 @@ def rename(parent, max_depth, case, objects, seperator):
                 new_path = os.path.join(path, new_name)
 
                 os.rename(old_path, new_path)
-                # os.remove(old_path)
 
         if objects in ['both', 'folders']:
             for i in range(len(folders)):
@@ -76,19 +71,16 @@ def rename(parent, max_depth, case, objects, seperator):
                 old_path = os.path.join(path, folders[i])
                 new_path = os.path.join(path, new_name)
                 os.rename(old_path, new_path)
-                # os.remove(old_path)
 
                 folders[i] = new_name
 
-        if max_depth is None:
-            continue
-
-        for folder in folders:
-            folder_path = os.path.join(path, folder)
-            if folder_path.count(os.sep) >= max_depth:
-                continue
-
-            rename(folder_path, max_depth, case)
+        if max_depth is None or current_depth < max_depth:
+            for folder in folders[:]:
+                folder_path = os.path.join(path, folder)
+                rename(folder_path, max_depth, case,
+                       objects, seperator, current_depth + 1)
+        else:
+            return
 
 
 if __name__ == "__main__":
