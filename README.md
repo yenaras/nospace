@@ -13,14 +13,10 @@ Programming With Python.
 ---
 ### Installation
 ---
-##### TODO: publish to pypi and make installable
 ---
-I want to make it operating system agnostic, so when you install it with pip,
-you can run it from the command line with calling the python executable directory.
-I'm not sure yet how to do this for Windows systems. I know for Unix systems,
-I would like it to move the executable to somewhere in the user path and the call to python is not required 
-because of the `#!/usr/bin/env python3` shebang at the beginning of the script.
-Any help with achieving this would be appreciated.
+```py
+pip install nospace
+```
 
 ---
 ### Usage
