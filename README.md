@@ -32,7 +32,7 @@ use it in and run it with python(or python3 on Ubuntu, or python or py on Window
 
 _example usage_
 ```py
-nospace -p test_directory -c lower -d 1 -o files -s
+nospace -p test_directory -c lower -d 1 -o files -s -
 ```
 
 ```py
