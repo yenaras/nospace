@@ -45,7 +45,6 @@ def main():
 
 
 def rename(parent, max_depth, case, objects, seperator, current_depth=1):
-    print(current_depth)
     for path, folders, files in os.walk(parent):
         if objects in ['both', 'files']:
             for f in files:
