@@ -1,5 +1,5 @@
 # NoSpace
-##### Video Demo: <URL HERE>
+##### Video Demo: https://www.youtube.com/watch?v=j8HY4FUUE9w&t=4s
 ---
 ##### Description:
 Do you use the command line a lot? Are you tired of spaces and/or capitalization 
