@@ -21,11 +21,6 @@ pip install nospace
 ---
 ### Usage
 ---
-Personally, I made the script executable with `chmod +x` and 
-moved it to /usr/local/bin/nospace
-so I can run it anywhere. Otherwise you have to move it to the directory you want to 
-use it in and run it with python(or python3 on Ubuntu, or python or py on Windows).
-
 _example usage_
 ```py
 nospace -p test_directory -c lower -d 1 -o files -s -
