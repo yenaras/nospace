@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "nospace"
 version = "0.1.0"
-description = ""
+description = "recursively rename files and folders to remove spaces and format with optional flags"
 authors = ["yenaras <brandon82890@gmail.com>"]
 
 [tool.poetry.dependencies]
