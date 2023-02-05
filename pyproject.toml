@@ -3,6 +3,10 @@ name = "nospace"
 version = "0.1.0"
 description = "recursively rename files and folders to remove spaces and format with optional flags"
 authors = ["yenaras <brandon82890@gmail.com>"]
+readme = "README.md"
+license = "MIT"
+repository = "https://github.com/yenaras/nospace"
+keywords = ["cli", "spaces", "format"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
