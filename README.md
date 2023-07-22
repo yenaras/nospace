@@ -14,7 +14,7 @@ Programming With Python.
 ### Installation
 ---
 ---
-```sh
+```py
 pip install nospace
 ```
 
@@ -22,11 +22,11 @@ pip install nospace
 ### Usage
 ---
 _example usage_
-```sh
+```py
 nospace -p test_directory -c lower -d 1 -o files -s -
 ```
 
-```sh
+```py
 usage: nospace [-h] [-d DEPTH] [-c {lower,title,upper}] [-o {both,files,folders}] [-s SEPERATOR] [-p PATH]
 
 rename files in bulk to remove spaces
