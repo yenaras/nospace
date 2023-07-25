@@ -6,9 +6,11 @@ import sys
 
 sys.dont_write_bytecode = True
 
+# create an argument parser
 parser = argparse.ArgumentParser(
     description="rename files in bulk to remove spaces")
 
+# add command line arguments
 parser.add_argument(
     "-d", "--depth", type=int, default=None,
     help="maximum depth of folders to traverse"
@@ -44,8 +46,11 @@ def main():
     rename(args.path, args.depth, args.case, args.objects, args.seperator)
 
 
+# recursively rename files and folders
 def rename(parent, max_depth, case, objects, seperator, current_depth=1):
+    # walk through the directory tree
     for path, folders, files in os.walk(parent):
+        # check flags used and format accordingly
         if objects in ['both', 'files']:
             for f in files:
                 new_name = re.sub(r'[ _-]+', seperator, f)
@@ -61,6 +66,7 @@ def rename(parent, max_depth, case, objects, seperator, current_depth=1):
 
                 os.rename(old_path, new_path)
 
+        # check if folders should be renamed and format accordingly
         if objects in ['both', 'folders']:
             for i in range(len(folders)):
                 new_name = re.sub(r'[ _-]+', seperator, folders[i])
@@ -77,6 +83,7 @@ def rename(parent, max_depth, case, objects, seperator, current_depth=1):
 
                 folders[i] = new_name
 
+        # Resurviely traverse subfolders if max_depth is not reached
         if max_depth is None or current_depth < max_depth:
             for folder in folders[:]:
                 folder_path = os.path.join(path, folder)
